@@ -1,0 +1,65 @@
+.pokedex-container {
+    display: flex;
+    flex-wrap: wrap; /* Para que las tarjetas puedan ir a la siguiente fila si no caben */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.pokedex-card {
+    background-color: #e63946; /* Color rojo Pokédex */
+    color: #f1faee; /* Color de texto claro */
+    border: 2px solid #1d3557; /* Borde azul oscuro */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 16px;
+    max-width: 300px; /* Limita el ancho de las tarjetas */
+    margin: 16px;
+    flex-shrink: 0; /* Evita que las tarjetas se reduzcan de tamaño en pantallas pequeñas */
+}
+
+.pokemon-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.pokemon-types, .pokemon-abilities {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.pokemon-types p, .pokemon-abilities p {
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #a8dadc;
+    border-radius: 4px;
+    padding: 4px;
+    text-align: center;
+    color: #1d3557;
+}
+
+.mat-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mat-card-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sound-button {
+    background-color: #457b9d;
+    color: #f1faee;
+    margin-top: 10px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.sound-button:hover {
+    background-color: #1d3557;
+    cursor: pointer;
+}
