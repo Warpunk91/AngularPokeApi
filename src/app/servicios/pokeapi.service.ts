@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,10 @@ export class PokeapiService {
 
   prevPage(prevPageUrl: string){
     return this.http.get(prevPageUrl);
+  }
+
+  getPokemon(id: string | number): Observable<any>{
+    return this.http.get<any>(`${this.urlApi}${id}`);
   }
 
 

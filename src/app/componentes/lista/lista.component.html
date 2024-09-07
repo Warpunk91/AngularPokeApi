@@ -1,37 +1,45 @@
-<div class="pokedex-container">
+<div >
+  <div class="pokedex-container" >
     @if(pokemonesCompletos){
-
-        @for(item of pokemonesCompletos; track item.id){
-
-            <mat-card class="pokedex-card">
-                <mat-card-header>
-                    <mat-card-title-group>
-                        <mat-card-title>{{item.id}}</mat-card-title>
-                        <mat-card-subtitle>{{item.name}}</mat-card-subtitle>
-                        <img mat-card-image [src]="item.sprites.front_default">
-                    </mat-card-title-group>
-                </mat-card-header>
-                <mat-card-content>
-                    <div class="pokemon-info">
-                        <div class="pokemon-types">
-                            <mat-card-subtitle>Tipo</mat-card-subtitle>
-                            @for(tipos of item.types; track tipos){
-                                <p>{{tipos.type.name}}</p>
-                            }
-                        </div>
-                        <div class="pokemon-abilities">
-                            <mat-card-subtitle>Habilidades</mat-card-subtitle>
-                            @for(habilidad of item.abilities; track habilidad){
-                                <p>{{habilidad.ability.name}}</p>
-                            }
-                        </div>
-                    </div>
-
-                    <button mat-button class="sound-button" (click)="playSound(item.cries.latest)">Sonido</button>
-                </mat-card-content>
-            </mat-card>
-
-        }  
+      @for(item of pokemonesCompletos; track item.id){
+        <mat-card class="pokedex-card">
+          <div class="cardHeader">
+            <div class="cardTitle">
+              <div class="titleId">{{item.id}}</div>
+              <div class="subtitle">{{item.name}}</div>
+            </div>
+          </div>
+          <mat-card-content>
+            <div class="imgPokemon">
+              <img mat-card-image [src]="item.sprites.front_default" alt="{{item.name}}">
+            </div>  
+            <div class="pokemon-info">
+              <div class="infoItem">
+                <mat-card-subtitle>Altura</mat-card-subtitle>
+                <p>{{item.height}}</p>
+              </div>
+              <div class="infoItem">
+                <mat-card-subtitle>Peso</mat-card-subtitle>
+                <p>{{item.weight}}</p>
+              </div>
+              <div class="infoItem">
+                <mat-card-subtitle>Tipo</mat-card-subtitle>
+                <ng-container *ngFor="let tipo of item.types">
+                  <p>{{tipo.type.name}}</p>
+                </ng-container>
+              </div>
+            </div>
+            <div class="buttonSound">
+              <button mat-button class="sound-button" (click)="playSound(item.cries.latest)">Sonido</button>
+            </div>
+          </mat-card-content>
+        </mat-card>                  
+      }  
     }
+  </div>
+  <div class="button-container">
+    <button class="pokemon-button" (click)="prevPage(listaPokemones.previous)">Atrás</button>
+    <button class="pokemon-button" (click)="nextPage(listaPokemones.next)">Adelante</button>
+  </div>
+  
 </div>
-

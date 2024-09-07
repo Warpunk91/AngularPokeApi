@@ -1,0 +1,48 @@
+<div class="search-container">
+    <mat-form-field class="pokemon-search-form">
+        <mat-label class="labelInput">Ingrese nombre o número de Pokémon</mat-label>
+        <input matInput [(ngModel)]="idPokemon" type="text" class="inputId">
+        <button mat-raised-button (click)="buscarPokemon()" class="buttonBuscar">Buscar</button>
+    </mat-form-field>
+</div>
+
+ 
+
+<div *ngIf="pokemonData ; elseBlock" class="card-pokemon">
+    
+  <mat-card class="pokedex-card">
+    <div class="cardHeader">
+      <div class="cardTitle">
+        <div class="titleId">{{pokemonData.id}}</div>
+        <div class="subtitle">{{pokemonData.name}}</div>
+      </div>
+    </div>
+    <mat-card-content>
+      <div class="imgPokemon">
+        <img mat-card-image [src]="pokemonData.sprites.front_default" alt="{{pokemonData.name}}">
+      </div>  
+      <div class="pokemon-info">
+        <div class="infoItem">
+          <mat-card-subtitle>Altura</mat-card-subtitle>
+          <p>{{pokemonData.height}}</p>
+        </div>
+        <div class="infoItem">
+          <mat-card-subtitle>Peso</mat-card-subtitle>
+          <p>{{pokemonData.weight}}</p>
+        </div>
+        <div class="infoItem">
+          <mat-card-subtitle>Tipo</mat-card-subtitle>
+          <ng-container *ngFor="let tipo of pokemonData.types">
+            <p>{{tipo.type.name}}</p>
+          </ng-container>
+        </div>
+      </div>
+      <div class="buttonSound">
+        <button mat-button class="sound-button" (click)="playSound(pokemonData.cries.latest)">Sonido</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+      
+
+</div>
+

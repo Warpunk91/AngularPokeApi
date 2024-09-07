@@ -5,61 +5,109 @@
     gap: 20px; /* Espacio entre las tarjetas */
 }
 
+
+
+
 .pokedex-card {
-    background-color: #e63946; /* Color rojo Pokédex */
-    color: #f1faee; /* Color de texto claro */
-    border: 2px solid #1d3557; /* Borde azul oscuro */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    padding: 16px;
-    max-width: 300px; /* Limita el ancho de las tarjetas */
-    margin: 16px;
-    flex-shrink: 0; /* Evita que las tarjetas se reduzcan de tamaño en pantallas pequeñas */
-}
-
-.pokemon-info {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.pokemon-types, .pokemon-abilities {
-    flex: 1;
-    margin-right: 10px;
-}
-
-.pokemon-types p, .pokemon-abilities p {
-    font-size: 14px;
-    font-weight: bold;
-    background-color: #a8dadc;
-    border-radius: 4px;
-    padding: 4px;
+    background-color: #a09090; /* Fondo blanco para un estilo limpio */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    overflow: hidden; /* Asegura que el contenido se ajuste dentro del borde redondeado */
+    width: 220px; /* Tamaño de la tarjeta */
+    margin: 10px auto; /* Margen automático para centrar */
+  }
+  
+  .cardHeader {
+    background-color: #ffcb05; /* Color amarillo inspirado en Pikachu */
+    padding: 10px;
     text-align: center;
-    color: #1d3557;
-}
-
-.mat-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.mat-card-title-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.sound-button {
-    background-color: #457b9d;
-    color: #f1faee;
-    margin-top: 10px;
-    padding: 6px 12px;
-    border-radius: 5px;
+  }
+  
+  .cardTitle {
+    font-size: 16px;
+    color: #3b4cca; /* Color azul típico de Pokémon */
+  }
+  
+  .titleId {
     font-weight: bold;
-}
+  }
+  
+  .subtitle {
+    font-weight: normal;
+    font-size: 14px;
+  }
+  
+  .imgPokemon {
+    text-align: center;
+    margin: 4px 0;
+  }
+  
+  .imgPokemon img { 
+    width: 100px; /* Tamaño pequeño para la imagen */
+    height: 100px; /* Tamaño pequeño para la imagen */
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor */
+  }
+  
+  .pokemon-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+  }
+  
+  .infoItem {
+    margin-bottom: 10px;
+  }
+  
+  .infoItem p {
+    margin: 2px 0;
+    font-size: 12px;
+  }
+  
+  .buttonSound {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .sound-button {
+    background-color: #ff0000; /* Rojo Pokébola */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .sound-button:hover {
+    background-color: #d32f2f; /* Rojo más oscuro al pasar el mouse */
+  }
+  
 
-.sound-button:hover {
-    background-color: #1d3557;
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espacio entre los botones */
+    margin-top: 50px; /* Espacio desde la parte superior de la página */
+  }
+  
+  .pokemon-button {
+    background-color: #ffcb05; /* Amarillo inspirado en Pikachu */
+    border: 2px solid #3b4cca; /* Azul para dar contraste */
+    color: #3b4cca; /* Azul oscuro típico de Pokémon */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px; /* Bordes redondeados */
     cursor: pointer;
-}
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .pokemon-button:hover {
+    background-color: #ff0000; /* Rojo Pokébola al pasar el mouse */
+    color: white;
+    transform: scale(1.05); /* Efecto de agrandar al hacer hover */
+  }
+  
+  .pokemon-button:active {
+    background-color: #d32f2f; /* Rojo más oscuro cuando se presiona */
+    transform: scale(0.98); /* Efecto de clic */
+  }
+  
