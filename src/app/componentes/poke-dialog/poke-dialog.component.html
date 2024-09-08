@@ -1,0 +1,19 @@
+<h1 class="pokemon-dialog-title">{{ data.name }}</h1>
+<div class="pokemon-dialog-content">
+  <img [src]="data.sprites.other.dream_world.front_default" class="pokemon-sprite">
+  <div class="pokemon-details">
+    <p><strong>Height:</strong> {{ data.height }}</p>
+    <p><strong>Weight:</strong> {{ data.weight }}</p>
+    <p><strong>Base experience:</strong> {{ data.base_experience }}</p>
+    <p><strong>Abilities:</strong></p>
+    <ul>
+      <li *ngFor="let ability of data.abilities">{{ ability.ability.name }}</li>
+    </ul>
+  </div>
+  <div class="button-container">
+    <button  class="sound-button "(click)="playSound(data.cries.latest)">Sonido</button>
+  </div>
+</div>
+<div  class="pokemon-dialog-actions">
+  <button mat-button mat-dialog-close class="pokemon-close-button">Cerrar</button>
+</div>

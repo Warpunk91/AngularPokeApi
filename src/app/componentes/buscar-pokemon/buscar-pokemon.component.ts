@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
 import { ListaComponent } from "../lista/lista.component";
+import { PokeDialogComponent } from '../poke-dialog/poke-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-buscar-pokemon',
@@ -36,7 +38,7 @@ export class BuscarPokemonComponent{
   idPokemon: string ='';
   pokemonData: any;
 
-  constructor(private pokeApi: PokeapiService){}
+  constructor(private pokeApi: PokeapiService, public dialog: MatDialog){}
 
   buscarPokemon(){
     if (this.idPokemon) {
@@ -49,13 +51,13 @@ export class BuscarPokemonComponent{
     console.log(this.pokemonData);
   }
 
-  nextPage(nextUrl: string): void{}
-
-  playSound(soundSource: string){
-    const audio = new Audio();
-    audio.src = soundSource;
-    audio.load();
-    audio.play();
+  openDialog(pokemon: any): void {
+    this.pokeApi.getPokemon(pokemon).subscribe((details) => {
+      this.dialog.open(PokeDialogComponent, {
+        width: '400px',
+        data: details
+      });
+    });
   }
 
   

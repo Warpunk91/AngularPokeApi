@@ -1,0 +1,93 @@
+.pokemon-dialog-title {
+    font-family: 'PokemonFont', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #ffcb05;
+    background-color: #2a75bb;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .pokemon-dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 2px solid #2a75bb;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .pokemon-sprite {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 3px solid #ffcb05;
+    background-color: white;
+    margin-bottom: 15px;
+  }
+  
+  .pokemon-details {
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    width: 100%;
+  }
+  
+  .pokemon-details p {
+    margin: 5px 0;
+  }
+  
+  .pokemon-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .pokemon-details ul li {
+    margin: 3px 0;
+    color: #2a75bb;
+  }
+  
+  .pokemon-dialog-actions {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+  }
+  
+  .pokemon-close-button {
+    background-color: #ffcb05;
+    color: #2a75bb;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pokemon-close-button:hover {
+    background-color: #f5b700;
+  }
+
+  .sound-button {
+    background-color: #ffcb05; 
+    border: 2px solid #3b4cca; 
+    color: #3b4cca; 
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .sound-button:hover {
+    background-color: #ff0000; 
+    color: white;
+    transform: scale(1.05); 
+  }
+  
+  .sound-button:active {
+    background-color: #d32f2f; 
+    transform: scale(0.98); 
+  }
+  

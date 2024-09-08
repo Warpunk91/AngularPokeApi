@@ -5,11 +5,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { BuscarPokemonComponent } from "../buscar-pokemon/buscar-pokemon.component";
+import { MatDialog } from '@angular/material/dialog';
+import { PokeDialogComponent } from '../poke-dialog/poke-dialog.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-lista',
   standalone: true,
-  imports: [HttpClientModule, MatCardModule, MatButtonModule, CommonModule, BuscarPokemonComponent],
+  imports: [HttpClientModule, MatCardModule, MatButtonModule, CommonModule, BuscarPokemonComponent, RouterLink],
   providers: [PokeapiService],
   templateUrl: './lista.component.html',
   styleUrl: './lista.component.scss'
@@ -20,7 +23,7 @@ export class ListaComponent implements OnInit{
   listaPokemones: any;
   pokemonesCompletos: any[] = [];
   pokemonData: any;
-  constructor(private pokeApi: PokeapiService){}
+  constructor(private pokeApi: PokeapiService, public dialog: MatDialog){}
 
   ngOnInit(): void {
     this.pokeApi.obtenerListadoPokemones().subscribe({
@@ -76,11 +79,15 @@ export class ListaComponent implements OnInit{
     })
   }
 
-  playSound(soundSource: string){
-    const audio = new Audio();
-    audio.src = soundSource;
-    audio.load();
-    audio.play();
+
+  openDialog(pokemon: any): void {
+    this.pokeApi.getPokemon(pokemon).subscribe((details) => {
+      this.dialog.open(PokeDialogComponent, {
+        width: '400px',
+        data: details
+      });
+    });
   }
+   
 
 }
